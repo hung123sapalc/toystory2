@@ -1,0 +1,24 @@
+<html lang="en">
+<%- include("./partials/head.ejs") %>
+
+<body>
+  <%- include("./partials/nav.ejs") %>
+
+  <div class="toys content">
+    <h2>Toys List:</h2>
+
+    <% if (toys.length > 0) { %>
+      <% toys.forEach(toy => { %>
+      <a class="single" href="/toys/<%=toy._id%>" >
+        <h3 class="title"><%= toy.name %></h3>
+      </a>
+      <% }) %>
+    <% } else { %>
+      <p>There are no toys to display...</p>
+    <% } %>
+    
+  </div>
+
+  <%- include("./partials/footer.ejs") %>
+</body>
+</html>

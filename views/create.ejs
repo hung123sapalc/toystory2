@@ -1,0 +1,23 @@
+<html lang="en">
+<%- include("./partials/head.ejs") %>
+
+<body>
+  <%- include("./partials/nav.ejs") %>
+
+  <div class="create-toy content">
+    <form action="/toys" method="POST">
+      <label for="title">Toys name:</label>
+      <input type="text" id="title" name="name" required>
+      <label for="price">Toys price:</label>
+      <input type="text" id = "price" name = "price" required placeholder="VND">
+      <label for="quantity">Toy quantity</label>
+      <input type="text" id="quantity" name="quantity" required>
+      <label for="body">Toy detail</label>
+      <textarea id="body" name="body" ></textarea>
+      <button>Submit</button>
+    </form>
+  </div>
+
+  <%- include("./partials/footer.ejs") %>
+</body>
+</html>

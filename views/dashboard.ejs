@@ -1,0 +1,14 @@
+<html lang="en">
+<%- include("./partials/head.ejs") %>
+
+<body>
+  <%- include("./partials/nav.ejs") %>
+
+  <h2 class="mt-4">Dashboard</h2>
+  <br>
+  <p class="lead mb-3">Welcome <%= name %>  </p>
+  <a href="/users/logout" class="btn btn-secondary">Logout</a>
+
+  <%- include("./partials/footer.ejs") %>
+</body>
+</html>

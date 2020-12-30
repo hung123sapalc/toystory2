@@ -1,0 +1,48 @@
+
+<html lang="en">
+  <%- include("./partials/head.ejs") %>
+  
+  <body>
+    <%- include("./partials/nav.ejs") %>
+  
+    <div class="details content">
+      <h1><%= toy.title %> </h1>
+   <table>
+      <tr>
+          <th>Toy name</th>
+          <th>Price</th>
+          <th>Quantity</th>
+          <th>Total Amount</th>
+          <th>Detail</th>       
+      </tr>
+      <tr>
+          <td><%= toy.name %></td>
+          <td><%= toy.price %></td>
+          <td><%= toy.quantity %></td>
+          <td><%= toy.price * toy.quantity %></td>
+          <td><%= toy.body %> </td>
+      </tr>
+      <a class="delete" data-doc="<%= toy._id %>">Delete</a>
+      <a class="update" href='/toys/edit/<%=toy._id %>' >Update</a>
+  </table>
+    </div>
+  
+    <%- include("./partials/footer.ejs") %>
+  
+    <script>
+      const trashcan = document.querySelector('a.delete');
+  
+      trashcan.addEventListener('click', (e) => {
+        const endpoint = `/toys/${trashcan.dataset.doc}`;
+  
+        fetch(endpoint, {
+          method: 'DELETE',
+        })
+        .then(response => response.json())
+        .then(data => window.location.href = data.redirect)
+        .catch(err => console.log(err));
+      });
+      
+    </script>
+  </body>
+  </html>
